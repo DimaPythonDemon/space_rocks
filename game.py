@@ -3,7 +3,9 @@ import time
 
 import pygame
 
-from models import Asteroid, Spaceship, Star, Harvester, ElectroStation, Talants, TalantsMenu, TalantsIcon, Preview, EnergyShield, NeuroNet
+from models import Asteroid, Spaceship, Star, Harvester, ElectroStation, Talants, TalantsMenu, TalantsIcon, Preview, EnergyShield
+#from models import NeuroNet 
+# replaced till I finish testing it
 from utils import get_random_position, load_sprite, print_text, draw_rectangle, load_sound, check_zone
 
 class SpaceRocks:
