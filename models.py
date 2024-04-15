@@ -90,6 +90,7 @@ class Spaceship(GameObject):
             self.BULLET_SPEED += round(2 / level, 2)
         if level == 13:
             self.TRIPLE_BOOM = True
+        # что вы так смотрите? тут будет Enum.
 
     def accelerate(self):
         if self.hypotic_speed < self.MAX_SPEED:
@@ -269,34 +270,7 @@ class EnergyShield(GameObject):
     def draw(self, surface):
         blit_position = self.position - Vector2(self.radius)
         surface.blit(self.sprite, blit_position)
-
-
-class NeuroNet():
-    def __init__(self, Spaceship, parameters='R'):
-        self.preference = parameters[0]
-        self.ticker = 0
-        self.Spaceship = Spaceship
-        self.previous_choices = ['', '', '']
-
-    def predict(self, data=('angle')):
-        lst = []
-        from_choice = ["R", "D", "L", "U"]
-        if self.previous_choices != []:
-            if self.previous_choices[-1] == 'U': from_choice.pop(1)
-            if self.previous_choices[-1] == "D": from_choice.pop(-1)
-        if not self.preference == "D": from_choice.append(self.preference)
-        else:
-            from_choice.append(self.preference)
-            from_choice.append("R")
-        randoom = random.choice(from_choice)
-        lst.append(randoom)
-        self.previous_choices.append(randoom)
-        lst.append('Heal')
-        if self.ticker % 20 == 0: lst.append("shoot")
-        if self.previous_choices[-1] == "U" == self.previous_choices[-2] and self.ticker % 2 == 0: lst.append("shoot")
-        self.ticker += 1
-        return lst
-
+        
 
 class NeyroNet():
     def __init__(self, Spaceship, parameters='R'):
